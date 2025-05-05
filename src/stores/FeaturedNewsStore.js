@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 export const useFeaturedNewsStore = defineStore('featuredNews', () => {
-  const icons = [{ name: 'pi pi-whatsapp' }, { name: 'pi pi-facebook' }, { name: 'pi pi-link' }]
+  const icons = [{ name: 'pi pi-link' }]
   // const icons = ref([
   //   { name: 'pi pi-whatsapp', link: 'https://wa.me/your-phone-number' },
   //   { name: 'pi pi-facebook', link: 'https://facebook.com/your-profile' },

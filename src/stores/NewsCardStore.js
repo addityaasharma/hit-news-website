@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 export const useNewsCardStore = defineStore('newsCard', () => {
-  const icons = [{ name: 'pi pi-whatsapp' }, { name: 'pi pi-facebook' }, { name: 'pi pi-link' }]
+  const icons = [{ name: 'pi pi-link' }]
 
   const formatDate = (dateStr) => {
     const date = new Date(dateStr)

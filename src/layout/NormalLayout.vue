@@ -1,6 +1,5 @@
 <script setup>
 import Sidebar from '@/components/Sidebar.vue'
-// import Shorts from '@/components/Shorts.vue'
 import HomeView from '@/views/HomeView.vue'
 import { RouterView } from 'vue-router'
 </script>
@@ -8,58 +7,62 @@ import { RouterView } from 'vue-router'
 <template>
   <main class="flex flex-col lg:flex-row min-h-screen w-full">
     <!-- Left Sidebar -->
-    <div class="hidden lg:block sticky top-0 h-screen md:w-[20%] lg:w-[18%] xl:w-[15%]">
+    <div class="lg:block sticky top-0 h-screen lg:w-[18%] xl:w-[15%] hidden">
       <Sidebar />
     </div>
 
     <!-- Main Content Area -->
-    <div class="flex flex-col w-full lg:w-[64%] xl:w-[66%] h-screen overflow-hidden">
+    <div class="flex flex-col w-full lg:w-[66%] xl:w-[70%] h-screen overflow-hidden flex-grow justify-center items-center">
       <!-- Scrollable Content -->
-      <div
-        class="flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
-      >
+      <div class="flex-1 overflow-y-auto scroll-smooth w-full px-4 py-6">
         <!-- HomeView only visible on lg+ screens, scrolls with content -->
-        <div class="hidden lg:block p-2 md:p-4 pl-only-1024 max-w-5xl mx-auto w-full">
+        <div class="hidden lg:block max-w-5xl mx-auto w-full">
           <HomeView />
         </div>
 
         <!-- RouterView shared for all screen sizes -->
-        <div class="p-2 md:p-4 pl-only-1024 max-w-5xl mx-auto w-full">
+        <div class="max-w-5xl mx-auto w-full">
           <RouterView :key="$route.fullPath" />
         </div>
       </div>
     </div>
 
-    <!-- Right Side (for future Shorts) -->
-    <div
-      class="hidden lg:block sticky top-0 self-start h-screen w-[280px] xl:w-[260px] 2xl:w-[280px] p-for-shorts"
-    >
-      <!-- <Shorts /> -->
-    </div>
   </main>
 </template>
 
-.
 <style scoped>
-@media (min-width: 1024px) and (max-width: 1024px) {
-  .pl-only-1024 {
-    /* border: 1px solid red; */
-    margin-left: 2rem;
+/* Improved responsive spacing */
+@media (min-width: 1024px) {
+  .pl-4 {
+    padding-left: 1rem; /* Add consistent padding for large screens */
   }
 }
 
-@media (min-width: 1024px) and (max-width: 1024px) {
-  .pl-for-1024 {
-    /* border: 1px solid red; */
-    padding: 0 0 1rem 0;
-    margin-left: 2rem;
+@media (max-width: 1024px) {
+  /* Adjust layout for smaller screens */
+  .lg\:w-[66%] {
+    width: 100%; /* Full width for smaller screens */
+  }
+  .lg\:block {
+    display: none; /* Hide sidebar on smaller screens */
+  }
+  .hidden {
+    display: block; /* Make the sidebar visible on mobile */
   }
 }
 
-@media (min-width: 1024px) and (max-width: 1024px) {
+.scroll-smooth {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+.max-w-5xl {
+  max-width: 1280px;
+}
+
+@media (min-width: 1024px) {
   .p-for-shorts {
-    /* border: 1px solid red; */
-    padding: 2px 4px;
+    padding: 2rem 4px;
   }
 }
 </style>
