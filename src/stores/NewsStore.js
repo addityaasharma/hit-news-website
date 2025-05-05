@@ -18,7 +18,7 @@ export const useNewsStore = defineStore('news', () => {
     isLoading.value = true
     error.value = null
     try {
-      const res = await axios.get('http://192.168.1.21:5000/newsroutes',{
+      const res = await axios.get('https://backend-5gsq.onrender.com/newsroutes',{
         headers : {
           "Content-Type" : "multipart/form-data"
         }

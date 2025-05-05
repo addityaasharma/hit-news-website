@@ -8,7 +8,7 @@ let intervalId = null
 
 const fetchBannerImages = async () => {
   try {
-    const response = await axios.get('http://192.168.1.21:5000/bannerroutes')
+    const response = await axios.get('https://backend-5gsq.onrender.com/bannerroutes')
     // console.log('API Response:', response.data)
 
     const images =

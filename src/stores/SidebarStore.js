@@ -10,7 +10,7 @@ export const useSidebarStore = defineStore('sidebar', () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get('http://192.168.1.21:5000/categoryroutes')
+      const response = await axios.get('https://backend-5gsq.onrender.com/categoryroutes')
       categories.value = response.data.data
       // console.log('Fetched categories:', categories.value)
     } catch (error) {
@@ -20,7 +20,7 @@ export const useSidebarStore = defineStore('sidebar', () => {
 
   const logoImage = async () => {
     try {
-      const response = await axios.get('http://192.168.1.21:5000/logoroutes')
+      const response = await axios.get('https://backend-5gsq.onrender.com/logoroutes')
       // console.log(response)
       logo.value = response.data.logo[0].image
     } catch (error) {
