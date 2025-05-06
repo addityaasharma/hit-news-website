@@ -16,7 +16,7 @@ import { RouterView } from 'vue-router'
       <!-- Scrollable Content -->
       <div class="flex-1 overflow-y-auto scroll-smooth w-full px-4 py-6">
         <!-- HomeView only visible on lg+ screens -->
-        <div class="hidden lg:block max-w-5xl mx-auto w-full">
+        <div class="mt-28 lg:mt-0 max-w-5xl mx-auto w-full">
           <HomeView />
         </div>
 
