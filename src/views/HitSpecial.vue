@@ -136,18 +136,15 @@ const closeModal = () => {
 
       <!-- Link Modal -->
       <div v-if="linkeddisplay"
-        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-30 backdrop-blur-sm p-4">
-        <div
-          class="w-full max-w-md bg-white text-gray-800 rounded-xl shadow-lg p-4 flex items-center justify-between gap-2 animate-fade-in">
-          <!-- Link -->
-          <span class="text-sm break-words flex-grow">{{ link }}</span>
+        class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-md bg-white border border-gray-300 shadow-lg rounded-xl px-4 py-3 flex items-center justify-between gap-2">
+        <!-- Link Text -->
+        <span class="text-sm text-gray-800 truncate flex-1">{{ link }}</span>
 
-          <!-- Close Button -->
-          <button @click="closeModal" class="text-lg font-bold text-gray-600 hover:text-red-500 transition-colors"
-            aria-label="Close">
-            &times;
-          </button>
-        </div>
+        <!-- Close Button -->
+        <button @click="closeModal" class="text-base font-bold text-gray-500 hover:text-red-500 transition-colors"
+          aria-label="Close">
+          &times;
+        </button>
       </div>
 
 
