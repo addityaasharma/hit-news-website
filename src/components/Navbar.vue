@@ -27,13 +27,21 @@ const handleClick = (categoryName) => {
         <img :src="sidebarStore.logo" alt="logo" class="max-h-[60px] w-auto mx-auto object-contain mt-4 mb-4" />
       </div>
 
-      <div
+      <!-- <div
         class="flex items-center gap-2 px-3 py-2 bg-[#F6F6F6] border rounded-full w-fit sm:w-[180px] md:w-[190px] lg:w-[180px]">
         <img :src="sidebarStore.whatsappIcon" alt="WhatsApp" class="w-6 h-6 sm:w-4 sm:h-4" />
         <span class="text-xs sm:text-sm md:text-base font-medium text-[#4D4D4D] whitespace-nowrap">
           {{ sidebarStore.whatsappText }}
         </span>
-      </div>
+      </div> -->
+      <a :href="`https://wa.me/${sidebarStore.whatsappNumber}`" target="_blank" rel="noopener noreferrer"
+        class="flex items-center gap-2 px-3 py-2 bg-[#F6F6F6] border rounded-full w-fit sm:w-[180px] md:w-[190px] lg:w-[180px] no-underline">
+        <img :src="sidebarStore.whatsappIcon" alt="WhatsApp" class="w-6 h-6 sm:w-4 sm:h-4" />
+        <span class="text-xs sm:text-sm md:text-base font-medium text-[#4D4D4D] whitespace-nowrap">
+          {{ sidebarStore.whatsappText }}
+        </span>
+      </a>
+
     </div>
 
     <!-- Category Buttons Scroll -->

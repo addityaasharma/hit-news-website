@@ -4,9 +4,12 @@ import { useNewsCardStore } from '@/stores/NewsCardStore'
 
 const link = window.location.href;
 const isVisible = ref(false) // Default is false, so link is hidden initially
-const handleLinkClick = () => {
+
+// Toggle link sharing panel visibility
+const toggleLinkVisibility = () => {
   isVisible.value = !isVisible.value;
 }
+
 
 const props = defineProps({
   article: Object,
@@ -22,10 +25,8 @@ const newsCardStore = useNewsCardStore()
 </script>
 
 <template>
-  <router-link
-    :to="`/${article.id}`"
-    class="block bg-white p-6 hover:bg-gray-50 transition-all rounded-lg shadow-lg hover:shadow-xl"
-  >
+  <router-link :to="`/${article.id}`"
+    class="block bg-white p-6 hover:bg-gray-50 transition-all rounded-lg shadow-lg hover:shadow-xl">
     <div class="flex flex-col gap-4">
       <!-- Row 1: Title + Content | Image -->
       <div class="flex justify-between items-start gap-6">
@@ -41,11 +42,8 @@ const newsCardStore = useNewsCardStore()
 
         <!-- Right side: Image -->
         <div class="w-20 h-20 flex-shrink-0 rounded-md overflow-hidden">
-          <img
-            :src="article.image || '/fallback.jpg'"
-            alt="Article Image"
-            class="w-full h-full object-cover rounded-md"
-          />
+          <img :src="article.image || '/fallback.jpg'" alt="Article Image"
+            class="w-full h-full object-cover rounded-md" />
         </div>
       </div>
 
@@ -58,12 +56,9 @@ const newsCardStore = useNewsCardStore()
 
         <!-- Icons -->
         <div class="flex gap-3">
-          <div
-            v-for="icon in newsCardStore.icons"
-            :key="icon.name"
-            :class="icon.name"
+          <div v-for="icon in newsCardStore.icons" :key="icon.name" :class="icon.name"
             class="text-xl text-[#ADADAD] hover:text-gray-900 cursor-pointer"
-          />
+            @click.stop.prevent="toggleLinkVisibility"></div>
         </div>
       </div>
 
@@ -80,10 +75,16 @@ const newsCardStore = useNewsCardStore()
     </div>
   </router-link>
 
-  <!-- Link visibility toggle section -->
-  <div v-if="isVisible" class="h-[50px] w-[500px] bg-gray-500 text-black border-black border-2 rounded-xl">
-    {{ link }}
+  <!-- Link sharing panel -->
+  <div v-if="isVisible"
+    class="mt-2 p-3 bg-gray-100 text-gray-800 border border-gray-300 rounded-lg flex justify-between items-center">
+    <span class="truncate flex-grow">{{ link }}</span>
+    <button @click="toggleLinkVisibility" class="ml-2 p-1 text-gray-500 hover:text-gray-700"
+      aria-label="Close link sharing">
+      <!-- <span class="pi pi-times"></span> -->
+    </button>
   </div>
+
 </template>
 
 <style scoped>

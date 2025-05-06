@@ -40,18 +40,24 @@ onMounted(() => {
 <template>
   <main class="flex flex-col space-y-6">
     <div class="relative w-full overflow-hidden rounded-xl shadow-lg" style="height: 400px;">
-      <a v-if="carouselImages.length > 0" :href="carouselImages[currentImage].link" target="_blank" class="w-full h-full block">
+      <a v-if="carouselImages.length > 0" :href="carouselImages[currentImage].link" target="_blank"
+        class="w-full h-full block">
         <img :src="carouselImages[currentImage].image" :key="carouselImages[currentImage].image"
-          class="w-full h-full object-cover transition-all duration-500 ease-in-out transform hover:scale-105" alt="Carousel Banner" />
+          class="w-full h-full object-cover transition-all duration-500 ease-in-out transform hover:scale-105"
+          alt="Carousel Banner" />
       </a>
-      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white space-y-2 sm:top-3/4 sm:left-auto sm:right-4 sm:translate-x-0 sm:-translate-y-1/2 sm:text-right">
-        <p class="text-2xl font-bold sm:text-3xl lg:text-4xl drop-shadow-lg">
-          क़िस्से सियासत के
-        </p>
-        <button class="font-semibold bg-[linear-gradient(90deg,_#E6000E_0%,_#F92323_100%)] text-white hover:text-white px-4 py-2 rounded-full shadow-md transition-all duration-300 transform hover:scale-105">
-          अभी देखे
-        </button>
+      <div class="absolute inset-0 flex items-center justify-center text-center text-white px-4">
+        <div class="space-y-2">
+          <p class="text-2xl font-bold sm:text-3xl lg:text-4xl drop-shadow-lg">
+            क़िस्से सियासत के
+          </p>
+          <button
+            class="font-semibold bg-[linear-gradient(90deg,_#E6000E_0%,_#F92323_100%)] text-white hover:text-white px-4 py-2 rounded-full shadow-md transition-all duration-300 transform hover:scale-105">
+            अभी देखे
+          </button>
+        </div>
       </div>
+
     </div>
   </main>
 </template>
@@ -105,7 +111,7 @@ object-cover {
 }
 
 
-.bg{
+.bg {
   background: linear-gradient(90deg, #E6000E 0%, #F92323 100%);
 }
 
