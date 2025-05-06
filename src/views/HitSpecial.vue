@@ -8,6 +8,18 @@ import { useNewsStore } from '@/stores/NewsStore'
 const route = useRoute()
 const newsStore = useNewsStore()
 const isLoading = ref(true)
+const showToast = ref(false)
+const copyToClipboard = async () => {
+  try {
+    await navigator.clipboard.writeText(link)
+    showToast.value = true
+    setTimeout(() => {
+      showToast.value = false
+    }, 5000)
+  } catch (err) {
+    console.error('Copy failed:', err)
+  }
+}
 
 const article = computed(() => newsStore.getArticleById(route.params.id))
 
@@ -130,21 +142,25 @@ const closeModal = () => {
           <!-- Share Icon -->
           <span v-for="(icon, index) in [{ name: 'pi pi-link' }]" :key="index"
             :class="['text-xl', icon.name, 'hover:text-[#2EA965] cursor-pointer transition-colors']"
-            @click="handleLinkClick" />
+            @click="copyToClipboard" />
         </div>
       </div>
 
       <!-- Link Modal -->
-      <div v-if="linkeddisplay"
+      <!-- <div v-if="linkeddisplay"
         class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-md bg-white border border-gray-300 shadow-lg rounded-xl px-4 py-3 flex items-center justify-between gap-2">
-        <!-- Link Text -->
+        Link Text
         <span class="text-sm text-gray-800 truncate flex-1">{{ link }}</span>
 
-        <!-- Close Button -->
+        Close Button
         <button @click="closeModal" class="text-base font-bold text-gray-500 hover:text-red-500 transition-colors"
           aria-label="Close">
           &times;
         </button>
+      </div> -->
+      <div v-if="showToast"
+        class="fixed bottom-5 right-5 bg-green-500 text-white px-4 py-2 rounded shadow-md transition-opacity duration-300">
+        Link copied to clipboard!
       </div>
 
 

@@ -2,11 +2,16 @@
 import { useSidebarStore } from '@/stores/SidebarStore'
 import { onMounted, ref } from 'vue'
 import { useNewsStore } from '@/stores/NewsStore'
-
+import { useRouter } from 'vue-router'
 const newsStore = useNewsStore()
 const sidebarStore = useSidebarStore()
 const selectedCategory = ref(null)
+const router = useRouter()
 
+const openFrontPage = () =>{
+  router.push('/');
+  console.log('Back to front page')
+}
 onMounted(() => {
   sidebarStore.fetchCategories()
   sidebarStore.logoImage()
@@ -23,8 +28,9 @@ const handleClick = (categoryName) => {
 <template>
   <nav class="block lg:hidden sticky top-0 z-20 bg-white shadow-sm">
     <div class="flex items-center justify-between px-4 w-full">
-      <div class="w-28 h-20 sm:w-28 sm:h-26 md:w-32 md:h-28 lg:w-40 lg:h-32">
-        <img :src="sidebarStore.logo" alt="logo" class="max-h-[60px] w-auto mx-auto object-contain mt-4 mb-4" />
+      <div  @click="openFrontPage" class="w-28 h-20 sm:w-28 sm:h-26 md:w-32 md:h-28 lg:w-40 lg:h-32">
+        <img :src="sidebarStore.logo" alt="logo"
+          class="max-h-[60px] w-auto mx-auto object-contain mt-4 mb-4" />
       </div>
 
       <!-- <div

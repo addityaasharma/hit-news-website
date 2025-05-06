@@ -38,25 +38,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="flex flex-col space-y-6">
-    <div class="relative w-full overflow-hidden rounded-xl shadow-lg" style="height: 400px;">
+  <main class="flex flex-col space-y-6 px-4">
+    <div class="relative w-full overflow-hidden rounded-xl shadow-lg" style="height: 210px;">
       <a v-if="carouselImages.length > 0" :href="carouselImages[currentImage].link" target="_blank"
         class="w-full h-full block">
         <img :src="carouselImages[currentImage].image" :key="carouselImages[currentImage].image"
           class="w-full h-full object-cover transition-all duration-500 ease-in-out transform hover:scale-105"
           alt="Carousel Banner" />
       </a>
-      <div class="absolute inset-0 flex items-center justify-center text-center text-white px-4">
-        <div class="space-y-2">
-          <p class="text-2xl font-bold sm:text-3xl lg:text-4xl drop-shadow-lg">
-            क़िस्से सियासत के
-          </p>
-          <button
-            class="font-semibold bg-[linear-gradient(90deg,_#E6000E_0%,_#F92323_100%)] text-white hover:text-white px-4 py-2 rounded-full shadow-md transition-all duration-300 transform hover:scale-105">
-            अभी देखे
-          </button>
-        </div>
-      </div>
 
     </div>
   </main>
