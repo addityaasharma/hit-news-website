@@ -119,11 +119,8 @@ const closeModal = () => {
 
       <!-- Main Image -->
       <div class="mt-4">
-        <img
-          :src="article?.image || '/fallback.jpg'"
-          alt="News Image"
-          class="w-full max-h-[350px] object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
-        />
+        <img :src="article?.image || '/fallback.jpg'" alt="News Image"
+          class="w-full max-h-[350px] object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300" />
       </div>
 
       <!-- Category + Share Icons -->
@@ -131,28 +128,28 @@ const closeModal = () => {
         <span class="font-semibold">{{ article?.category }}</span>
         <div class="flex gap-4">
           <!-- Share Icon -->
-          <span
-            v-for="(icon, index) in [{ name: 'pi pi-link' }]"
-            :key="index"
+          <span v-for="(icon, index) in [{ name: 'pi pi-link' }]" :key="index"
             :class="['text-xl', icon.name, 'hover:text-[#2EA965] cursor-pointer transition-colors']"
-            @click="handleLinkClick"
-          />
+            @click="handleLinkClick" />
         </div>
       </div>
 
       <!-- Link Modal -->
-      <div v-if="linkeddisplay" 
-        class="h-[50px] w-[400px] border-2 rounded-xl bg-gray-400 text-black px-4 py-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 z-50 flex items-center justify-between"
-      >
-        <span class="text-sm">{{ link }}</span>
-        <!-- Close Button -->
-        <button 
-          @click="closeModal" 
-          class="text-xl font-bold text-white bg-transparent border-none cursor-pointer hover:text-red-500 mt-1 mr-4"
-        >
-          &times;
-        </button>
+      <div v-if="linkeddisplay"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-30 backdrop-blur-sm p-4">
+        <div
+          class="w-full max-w-md bg-white text-gray-800 rounded-xl shadow-lg p-4 flex items-center justify-between gap-2 animate-fade-in">
+          <!-- Link -->
+          <span class="text-sm break-words flex-grow">{{ link }}</span>
+
+          <!-- Close Button -->
+          <button @click="closeModal" class="text-lg font-bold text-gray-600 hover:text-red-500 transition-colors"
+            aria-label="Close">
+            &times;
+          </button>
+        </div>
       </div>
+
 
       <!-- Background Blur when modal is open -->
       <div v-if="linkeddisplay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40"></div>
@@ -170,13 +167,16 @@ const closeModal = () => {
   .lg\:pt-4 {
     padding-top: 2rem;
   }
+
   .lg\:px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+
   .lg\:block {
     display: block;
   }
+
   .lg\:hidden {
     display: none;
   }
@@ -202,11 +202,13 @@ button {
 }
 
 button:hover {
-  color: #f44336; /* Red color for hover */
+  color: #f44336;
+  /* Red color for hover */
 }
 
 /* Background Blur */
 .backdrop-blur-sm {
-  backdrop-filter: blur(5px); /* Adds a blur effect to the background */
+  backdrop-filter: blur(5px);
+  /* Adds a blur effect to the background */
 }
 </style>
