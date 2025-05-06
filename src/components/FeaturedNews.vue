@@ -45,12 +45,12 @@ const stripAndLimit = (htmlContent, wordLimit = 45) => {
     <div class="flex justify-between items-center text-sm text-[#ADADAD] pt-4">
       <span class="font-medium">{{ article?.category }}</span>
       <div class="flex gap-3">
-        <span
+        <!-- <span
           v-for="(icon, index) in FeaturedNewsStore.icons"
           :key="index"
           :class="['text-xl', icon.name]"
           class="hover:text-gray-900 cursor-pointer"
-        />
+        /> -->
         <!-- <a
           v-for="(icon, index) in FeaturedNewsStore.icons"
           :key="index"
