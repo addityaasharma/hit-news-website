@@ -8,7 +8,7 @@ const sidebarStore = useSidebarStore()
 const selectedCategory = ref(null)
 const router = useRouter()
 
-const openFrontPage = () =>{
+const openFrontPage = () => {
   router.push('/');
   console.log('Back to front page')
 }
@@ -28,18 +28,10 @@ const handleClick = (categoryName) => {
 <template>
   <nav class="block lg:hidden sticky top-0 z-20 bg-white shadow-sm">
     <div class="flex items-center justify-between px-4 w-full">
-      <div  @click="openFrontPage" class="w-28 h-20 sm:w-28 sm:h-26 md:w-32 md:h-28 lg:w-40 lg:h-32">
-        <img :src="sidebarStore.logo" alt="logo"
-          class="max-h-[60px] w-auto mx-auto object-contain mt-4 mb-4" />
+      <div @click="openFrontPage" class="w-28 h-20 sm:w-28 sm:h-26 md:w-32 md:h-28 lg:w-40 lg:h-32">
+        <img :src="sidebarStore.logo" alt="logo" class="max-h-[60px] w-auto mx-auto object-contain mt-4 mb-4" />
       </div>
 
-      <!-- <div
-        class="flex items-center gap-2 px-3 py-2 bg-[#F6F6F6] border rounded-full w-fit sm:w-[180px] md:w-[190px] lg:w-[180px]">
-        <img :src="sidebarStore.whatsappIcon" alt="WhatsApp" class="w-6 h-6 sm:w-4 sm:h-4" />
-        <span class="text-xs sm:text-sm md:text-base font-medium text-[#4D4D4D] whitespace-nowrap">
-          {{ sidebarStore.whatsappText }}
-        </span>
-      </div> -->
       <a :href="`https://wa.me/${sidebarStore.whatsappNumber}`" target="_blank" rel="noopener noreferrer"
         class="flex items-center gap-2 px-3 py-2 bg-[#F6F6F6] border rounded-full w-fit sm:w-[180px] md:w-[190px] lg:w-[180px] no-underline">
         <img :src="sidebarStore.whatsappIcon" alt="WhatsApp" class="w-6 h-6 sm:w-4 sm:h-4" />

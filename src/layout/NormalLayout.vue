@@ -1,4 +1,5 @@
 <script setup>
+import Navbar from '@/components/Navbar.vue';
 import Sidebar from '@/components/Sidebar.vue'
 import HomeView from '@/views/HomeView.vue'
 import { RouterView } from 'vue-router'
@@ -6,22 +7,21 @@ import { RouterView } from 'vue-router'
 
 <template>
   <main class="flex flex-col lg:flex-row min-h-screen w-full">
-    <!-- Left Sidebar -->
-    <div class="lg:block sticky top-0 h-screen w-full lg:w-[10%] xl:w-[15%] hidden border-r border-opacity-[40%] border-black">
+    <!-- Left Sidebar (visible on lg+ screens) -->
+    <div
+      class="hidden lg:block sticky top-0 h-screen w-full lg:w-[10%] xl:w-[15%] border-r border-black border-opacity-[40%]">
       <Sidebar />
     </div>
 
     <!-- Main Content Area -->
     <div class="flex flex-col w-full lg:w-[90%] xl:w-[85%] h-screen overflow-hidden flex-grow">
-      <!-- Scrollable Content -->
-      <div class="flex-1 overflow-y-auto scroll-smooth w-full px-4 py-6">
-        <!-- HomeView only visible on lg+ screens -->
-        <div class="mt-28 lg:mt-0 max-w-5xl mx-auto w-full">
+      <div class="flex-1 overflow-y-auto scroll-smooth w-full px-4">
+        <Navbar/>
+        <div class="mt-[50px] lg:mt-4 max-w-5xl mx-auto w-full">
           <HomeView />
         </div>
 
-        <!-- RouterView shared for all screen sizes -->
-        <div class="max-w-5xl mx-auto w-full">
+        <div class="max-w-5xl mx-auto w-full md:-mt-4">
           <RouterView :key="$route.fullPath" />
         </div>
       </div>

@@ -16,7 +16,7 @@ const stripAndLimit = (htmlContent, wordLimit = 45) => {
 
 <template>
   <router-link :to="`/${article.id}`" class="block bg-white">
-    <div class="pt-4">
+    <div class="-mt-14 lg:mt-16">
       <div class="flex flex-wrap items-baseline gap-1">
         <p class="gap-1 text-lg font-bold text-[#2EA965] md:text-base">
           {{ article?.title }} :

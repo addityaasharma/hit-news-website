@@ -14,8 +14,8 @@ const goToNewsFeed = () => {
 </script>
 
 <template>
-  <div class="lg:hidden px-2 pt-1 m-3">
-    <div class="flex items-center justify-between">
+  <div class="lg:hidden hidden m-8 h-0 w-4">
+    <div class="flex items-center justify-between mt-6 h-4 w-4">
       <span
         :class="backIcon.name"
         class="text-xl text-[#ADADAD] hover:text-gray-900 cursor-pointer"
@@ -23,14 +23,14 @@ const goToNewsFeed = () => {
       />
 
       <!-- Share Icons -->
-      <div class="flex gap-4">
+      <!-- <div class="flex gap-4">
         <span
           v-for="icon in icons"
           :key="icon.name"
           :class="icon.name"
           class="text-xl text-[#ADADAD] hover:text-gray-900 cursor-pointer"
         />
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

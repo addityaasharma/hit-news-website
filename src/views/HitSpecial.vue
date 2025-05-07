@@ -4,6 +4,7 @@ import { onMounted, computed, ref } from 'vue'
 import DetailTopbar from '@/components/DetailTopbar.vue'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import { useNewsStore } from '@/stores/NewsStore'
+import Navbar from '@/components/Navbar.vue'
 
 const route = useRoute()
 const newsStore = useNewsStore()
@@ -98,18 +99,21 @@ const closeModal = () => {
 </script>
 
 <template>
+
   <div class="relative min-h-screen bg-gray-100">
+
     <!-- Mobile Topbar -->
     <div class="fixed top-0 left-0 right-0 z-50 block lg:hidden bg-white shadow-md">
       <DetailTopbar />
     </div>
+
 
     <!-- Loading Spinner -->
     <div v-if="isLoading" class="text-center py-20">
       <span class="text-lg font-semibold text-gray-500">Loading...</span>
     </div>
 
-    <div v-else class="space-y-8 mx-auto max-w-screen-xl w-full overflow-x-hidden px-4 sm:px-6 lg:px-8 pt-24 pb-10">
+    <div v-else class="space-y-4 mx-auto max-w-screen-xl w-full overflow-x-hidden px-4 sm:px-6 lg:px-8 pt-8 pb-10 mt-8">
       <!-- Breadcrumb on Desktop -->
       <div class="hidden lg:block">
         <Breadcrumb />
